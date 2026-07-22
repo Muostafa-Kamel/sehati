@@ -34,7 +34,6 @@ class _LoginPageState extends State<LoginPage> {
         MaterialPageRoute(builder: (context) => HomePage()),
       );
     }
-
     setState(() {
       loading = true;
     });
@@ -219,7 +218,12 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   height: 55,
                   child: ElevatedButton(
-                    onPressed: loading ? null : login,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    }, //loading ? null : login,
                     child: loading
                         ? const CircularProgressIndicator(color: Colors.white)
                         : const Text("Login", style: TextStyle(fontSize: 18)),
